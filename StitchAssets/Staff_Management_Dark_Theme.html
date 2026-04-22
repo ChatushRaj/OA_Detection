@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OASense | Clinical Staff Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#131313",
+                        "surface-container": "#201f1f",
+                        "on-tertiary-fixed": "#261a00",
+                        "primary-container": "#00301f",
+                        "on-secondary-container": "#aeb9d0",
+                        "on-primary": "#003825",
+                        "on-primary-container": "#00a473",
+                        "tertiary-container": "#362600",
+                        "on-background": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "secondary": "#bcc7de",
+                        "surface": "#131313",
+                        "on-surface-variant": "#c5c6cd",
+                        "on-secondary": "#263143",
+                        "background": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "inverse-primary": "#006c4b",
+                        "secondary-fixed-dim": "#bcc7de",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "outline-variant": "#45474c",
+                        "tertiary": "#f9bd22",
+                        "primary-fixed-dim": "#45dfa4",
+                        "on-tertiary-container": "#b78800",
+                        "surface-tint": "#45dfa4",
+                        "error": "#ffb4ab",
+                        "on-error-container": "#ffdad6",
+                        "surface-bright": "#393939",
+                        "secondary-container": "#3e495d",
+                        "on-primary-fixed": "#002114",
+                        "surface-variant": "#353534",
+                        "primary-fixed": "#68fcbf",
+                        "inverse-on-surface": "#313030",
+                        "on-primary-fixed-variant": "#005137",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed": "#ffdf9f",
+                        "on-tertiary": "#402d00",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-highest": "#353534",
+                        "on-secondary-fixed": "#111c2d",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#d8e3fb",
+                        "error-container": "#93000a",
+                        "outline": "#8f9097",
+                        "inverse-surface": "#e5e2e1",
+                        "primary": "#45dfa4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .serenity-blur {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(62, 73, 93, 0.15) 0%, rgba(62, 73, 93, 0) 70%);
+            z-index: -1;
+            filter: blur(80px);
+        }
+        .signature-cta {
+            background: linear-gradient(135deg, #45dfa4 0%, #00a473 100%);
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary-container selection:text-primary">
+<!-- Decorative Atmosphere -->
+<div class="serenity-blur top-[-100px] left-[-100px]"></div>
+<div class="serenity-blur bottom-[-100px] right-[-100px]"></div>
+<!-- TopAppBar Execution -->
+<nav class="fixed top-0 w-full z-50 bg-neutral-900/60 backdrop-blur-xl shadow-2xl shadow-emerald-900/10 flex justify-between items-center px-8 h-20 w-full">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-bold tracking-tighter text-emerald-400 font-['Manrope']">OASense</span>
+<div class="hidden md:flex gap-8">
+<a class="font-['Manrope'] tracking-tight text-neutral-400 hover:text-neutral-200 transition-colors" href="#">Dashboard</a>
+<a class="font-['Manrope'] tracking-tight text-neutral-400 hover:text-neutral-200 transition-colors" href="#">Patient Records</a>
+<a class="font-['Manrope'] tracking-tight text-neutral-400 hover:text-neutral-200 transition-colors" href="#">Analysis</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<input class="bg-surface-container-lowest border-none rounded-xl px-4 py-2 w-64 focus:ring-1 focus:ring-emerald-400 text-sm text-on-surface-variant" placeholder="Search staff..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2 text-neutral-500 text-sm">search</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-neutral-400 hover:bg-white/5 p-2 rounded-full transition-all">notifications</button>
+<button class="material-symbols-outlined text-emerald-400 border-b-2 border-emerald-400 pb-1 hover:bg-white/5 transition-all">settings</button>
+<img alt="Chief Medical Officer Profile" class="w-10 h-10 rounded-full border border-white/10 scale-105 active:scale-95 duration-200 cursor-pointer" data-alt="close-up portrait of a professional male chief medical officer with spectacles in a clean hospital environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7kiDOVTRXyPCWEIYFfh4NviPzkLEp0A02TlRmCwkrZlKLgTkkBbAVnk-p40OvEs06lD8YXj9xI5EUzaJTj-cET6CUYhitjF5O08G7cZ8UDoOIac7N3IILEvVjmnSbrky8rWeBEaVir25TZeQdzcgRak3QbDHMAzJ7jmlOsgvP6bSqvTPyAYAjbBQP3kV0cOJpunC1hXrTJCYFrSUG1hs9qF78Diqevx2FcgXhyea82E80utw_dnvXRXJQ-EHDWPaEg62J11tvzPE"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar Execution -->
+<aside class="h-screen w-72 fixed left-0 top-0 pt-20 border-r border-white/5 bg-neutral-900 hidden md:flex flex-col gap-2 p-6 z-40">
+<div class="mb-8 px-2">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-8 h-8 bg-emerald-500/10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-400 text-xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">biotech</span>
+</div>
+<h2 class="font-headline font-bold text-on-surface tracking-tight">Clinical Suite</h2>
+</div>
+<p class="font-['Inter'] font-medium uppercase tracking-widest text-[10px] text-neutral-500 px-11">V2.4 Active</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl font-['Inter'] font-medium uppercase tracking-widest text-[10px] text-neutral-500 hover:text-neutral-300 hover:bg-neutral-800/50 transition-all translate-x-1" href="#">
+<span class="material-symbols-outlined text-lg">biotech</span>
+<span>Diagnostics</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl font-['Inter'] font-medium uppercase tracking-widest text-[10px] text-neutral-500 hover:text-neutral-300 hover:bg-neutral-800/50 transition-all translate-x-1" href="#">
+<span class="material-symbols-outlined text-lg">settings_accessibility</span>
+<span>Joint Mapping</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl font-['Inter'] font-medium uppercase tracking-widest text-[10px] text-neutral-500 hover:text-neutral-300 hover:bg-neutral-800/50 transition-all translate-x-1" href="#">
+<span class="material-symbols-outlined text-lg">history</span>
+<span>History</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl font-['Inter'] font-medium uppercase tracking-widest text-[10px] text-neutral-500 hover:text-neutral-300 hover:bg-neutral-800/50 transition-all translate-x-1" href="#">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+<span>Clinical Notes</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl font-['Inter'] font-medium uppercase tracking-widest text-[10px] text-neutral-500 hover:text-neutral-300 hover:bg-neutral-800/50 transition-all translate-x-1" href="#">
+<span class="material-symbols-outlined text-lg">science</span>
+<span>Lab Results</span>
+</a>
+</nav>
+<button class="signature-cta text-on-primary font-headline font-bold py-3 rounded-xl shadow-lg shadow-emerald-500/20 hover:scale-105 active:scale-95 transition-all mb-4">
+            New Screening
+        </button>
+<div class="mt-auto border-t border-white/5 pt-4">
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl font-['Inter'] font-medium uppercase tracking-widest text-[10px] text-neutral-500 hover:text-neutral-300 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl font-['Inter'] font-medium uppercase tracking-widest text-[10px] text-neutral-500 hover:text-neutral-300 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-20 md:ml-72 px-8 lg:px-16 min-h-screen">
+<!-- Header & Asymmetry -->
+<header class="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
+<div class="max-w-2xl">
+<h1 class="font-headline text-5xl font-extrabold tracking-tighter text-on-surface leading-tight mb-4">
+                    Orchestrate <br/><span class="text-emerald-400">Your Clinical Power.</span>
+</h1>
+<p class="font-body text-on-surface-variant text-lg">Manage permissions, roles, and operational availability for the OAsense diagnostic collective.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-3 rounded-xl font-headline font-bold text-sm bg-surface-container-high text-on-surface border border-outline-variant/15 hover:bg-surface-bright transition-all">
+                    Export Directory
+                </button>
+<button class="signature-cta px-6 py-3 rounded-xl font-headline font-bold text-sm text-on-primary flex items-center gap-2 hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg">person_add</span>
+                    Add Staff Member
+                </button>
+</div>
+</header>
+<!-- Stats Bento -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+<div class="md:col-span-1 bg-surface-container-low p-6 rounded-xl border-l-4 border-emerald-400">
+<span class="font-label text-[10px] uppercase tracking-widest text-neutral-500">Active Duty</span>
+<div class="text-3xl font-headline font-bold mt-2">24 / 28</div>
+</div>
+<div class="md:col-span-1 bg-surface-container-low p-6 rounded-xl">
+<span class="font-label text-[10px] uppercase tracking-widest text-neutral-500">Radiology Core</span>
+<div class="text-3xl font-headline font-bold mt-2 text-on-surface">12</div>
+</div>
+<div class="md:col-span-2 bg-surface-container p-6 rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<span class="font-label text-[10px] uppercase tracking-widest text-neutral-500">System Performance</span>
+<div class="flex items-baseline gap-2 mt-2">
+<div class="text-3xl font-headline font-bold text-emerald-400">99.8%</div>
+<span class="text-[10px] text-emerald-500 font-bold">+0.2%</span>
+</div>
+</div>
+<div class="absolute right-[-20px] bottom-[-20px] opacity-10">
+<span class="material-symbols-outlined text-8xl">bolt</span>
+</div>
+</div>
+</section>
+<!-- Staff List (Glassmorphism Container) -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden shadow-2xl">
+<div class="p-8 border-b border-white/5 flex justify-between items-center bg-white/5 backdrop-blur-md">
+<h3 class="font-headline font-bold text-xl">Staff Directory</h3>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-[10px] font-bold rounded-full uppercase tracking-tighter">Verified</span>
+<span class="px-3 py-1 bg-surface-container-high text-neutral-400 text-[10px] font-bold rounded-full uppercase tracking-tighter">Cloud Sync</span>
+</div>
+</div>
+<!-- Staff Members Grid/List -->
+<div class="divide-y divide-white/5">
+<!-- Staff Row 1 -->
+<div class="group flex flex-col md:flex-row items-center gap-6 p-6 hover:bg-emerald-500/5 transition-all duration-300">
+<div class="relative">
+<img alt="Dr. Elena Rossi" class="w-16 h-16 rounded-xl object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Professional medical headshot of a middle-aged female doctor with confident expression and silver stethoscope" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALWEFuDD0eTEjDY0oooSYJO56AM7Ki-oUhNzpcvMJw3o_QtsJDYjTez9Q25dgLVW9rwTD1f9cz5C7lZzf6EeWDGOd1cUt2xwjqLXhSDPbWqzxcf7ANZP_IBr1hwADfgv01F_nUaYdzh2xadRzJqXMlmq_6Y1Q_6VuRrGLmJ-68fjtSIammGa4IaFMraWpmYJZjdZXcziUKuDfPUqn5uE6LXPVbKb4PC90E55T3xVD7I386TPcLzbgLD9Lwg8c-91dFQ8nJm2Hn0f4"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-surface-container-low"></div>
+</div>
+<div class="flex-1">
+<h4 class="font-headline font-bold text-lg text-on-surface group-hover:text-emerald-400 transition-colors">Dr. Elena Rossi</h4>
+<p class="font-body text-sm text-neutral-500">Lead Rheumatologist • Senior Clinician</p>
+</div>
+<div class="flex gap-3">
+<span class="px-4 py-1.5 bg-surface-container-highest text-on-surface text-xs font-semibold rounded-lg">Doctor</span>
+<span class="px-4 py-1.5 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-lg">Active</span>
+</div>
+<div class="flex items-center gap-4 ml-auto">
+<!-- Toggle Switch -->
+<div class="flex items-center gap-3">
+<span class="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">Access</span>
+<div class="w-10 h-5 bg-emerald-500 rounded-full relative cursor-pointer shadow-inner">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+<button class="material-symbols-outlined text-neutral-500 hover:text-on-surface transition-colors p-2 rounded-lg hover:bg-surface-container-high">more_vert</button>
+</div>
+</div>
+<!-- Staff Row 2 -->
+<div class="group flex flex-col md:flex-row items-center gap-6 p-6 hover:bg-emerald-500/5 transition-all duration-300">
+<div class="relative">
+<img alt="Marcus Thorne" class="w-16 h-16 rounded-xl object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Close up of a focused male radiologist wearing a dark scrub suit with modern medical equipment in background blur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL9PH9IjALDOmCw-t96qRemzzbP8okziIrVwRYuQja1eV0LefVGfepDtD0g6WRCfhp9oYtCgNEkW0GR6arvhtpQCEp-0197VlHoOtOSW1SvCv70BF7xoWOTOgpisff2MFo8PAhOHIFiWq-lS7MvtZRoTBCFbR1CRwgoavVGMHLTaulRiuaZ9YVbuI5ZO5QZtfST2zmshJYKjqcPWHx4plU-rVMtcSEVbxOOIrgHrdtiBaV1Tr8Rm3FFzCZdL1rsTdtxRLWZlhNJwk"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-surface-container-low"></div>
+</div>
+<div class="flex-1">
+<h4 class="font-headline font-bold text-lg text-on-surface group-hover:text-emerald-400 transition-colors">Marcus Thorne</h4>
+<p class="font-body text-sm text-neutral-500">Chief Radiologist • AI Mapping Core</p>
+</div>
+<div class="flex gap-3">
+<span class="px-4 py-1.5 bg-surface-container-highest text-on-surface text-xs font-semibold rounded-lg">Radiologist</span>
+<span class="px-4 py-1.5 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-lg">Active</span>
+</div>
+<div class="flex items-center gap-4 ml-auto">
+<div class="flex items-center gap-3">
+<span class="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">Access</span>
+<div class="w-10 h-5 bg-emerald-500 rounded-full relative cursor-pointer shadow-inner">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+<button class="material-symbols-outlined text-neutral-500 hover:text-on-surface transition-colors p-2 rounded-lg hover:bg-surface-container-high">more_vert</button>
+</div>
+</div>
+<!-- Staff Row 3 -->
+<div class="group flex flex-col md:flex-row items-center gap-6 p-6 hover:bg-emerald-500/5 transition-all duration-300">
+<div class="relative">
+<img alt="Sarah Jenkins" class="w-16 h-16 rounded-xl object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Modern professional woman with tied back hair wearing a minimalist dark blazer in a soft lit corporate office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrmw32urDQF8UPtelrkYu6uTOr7IviAdrWFBFtQzEu-9oNy8OZ8pd9QgTcZ_T5JFlj1XJLd3sziYeuHLO9X9yu1uKfl_J8vI9hjcNyD4zKPHeJcCVs_gqSBZ2EUrT8LGRtDDOQpDFPyCOHxUdC0reIAESIzL9mSJdG8874ELEkMltarvt4sGRMnzZAx7yaAyu2JKbnUxYdhTo6_KP4mW_fPMVCF1_3TzzHoIdnre2PcjxgDX32ejUmY4YDnEJU_eDLKSz-8d8bvh8"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-error rounded-full border-2 border-surface-container-low"></div>
+</div>
+<div class="flex-1">
+<h4 class="font-headline font-bold text-lg text-on-surface group-hover:text-emerald-400 transition-colors">Sarah Jenkins</h4>
+<p class="font-body text-sm text-neutral-500">System Administrator • Security Protocol</p>
+</div>
+<div class="flex gap-3">
+<span class="px-4 py-1.5 bg-surface-container-highest text-on-surface text-xs font-semibold rounded-lg">Admin</span>
+<span class="px-4 py-1.5 bg-error-container text-error text-xs font-semibold rounded-lg">Offline</span>
+</div>
+<div class="flex items-center gap-4 ml-auto">
+<div class="flex items-center gap-3">
+<span class="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">Access</span>
+<div class="w-10 h-5 bg-surface-container-high rounded-full relative cursor-pointer shadow-inner border border-white/5">
+<div class="absolute left-1 top-1 w-3 h-3 bg-neutral-600 rounded-full"></div>
+</div>
+</div>
+<button class="material-symbols-outlined text-neutral-500 hover:text-on-surface transition-colors p-2 rounded-lg hover:bg-surface-container-high">more_vert</button>
+</div>
+</div>
+<!-- Staff Row 4 -->
+<div class="group flex flex-col md:flex-row items-center gap-6 p-6 hover:bg-emerald-500/5 transition-all duration-300">
+<div class="relative">
+<img alt="Dr. Julian Vane" class="w-16 h-16 rounded-xl object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Portrait of a young male clinical researcher with a focused gaze and dark blue medical uniform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOE6j0gixE1372Z98SA9_XFnNQomZ-Z5idcI8lNAN54QMb47EM8xM7uSx4X2oRVlBG2TLDqMvs2v4t9y0qa7ES2zGTWG-Reca2xS9PvoywVtiI6V_rMlfRAr_LmS5ITOqAY6iejOzWm6KqVFjn6hfw0PKIYGAsN9rCFVervzx7_rdrlTqN6hWAPTQ3fZ-9sNcxVOZQfhC6kBH0An_e2I4dK50vgp8w2F7t0gyWh_D5_SBUtbpG5qhrH1gj75cqy1h-_q7GABGEV7o"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-surface-container-low"></div>
+</div>
+<div class="flex-1">
+<h4 class="font-headline font-bold text-lg text-on-surface group-hover:text-emerald-400 transition-colors">Dr. Julian Vane</h4>
+<p class="font-body text-sm text-neutral-500">Radiology Resident • Clinical Fellow</p>
+</div>
+<div class="flex gap-3">
+<span class="px-4 py-1.5 bg-surface-container-highest text-on-surface text-xs font-semibold rounded-lg">Radiologist</span>
+<span class="px-4 py-1.5 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-lg">Active</span>
+</div>
+<div class="flex items-center gap-4 ml-auto">
+<div class="flex items-center gap-3">
+<span class="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">Access</span>
+<div class="w-10 h-5 bg-emerald-500 rounded-full relative cursor-pointer shadow-inner">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+<button class="material-symbols-outlined text-neutral-500 hover:text-on-surface transition-colors p-2 rounded-lg hover:bg-surface-container-high">more_vert</button>
+</div>
+</div>
+</div>
+<footer class="p-6 bg-surface-container-lowest border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm text-neutral-500 font-body">Showing 1-4 of 28 staff members across 3 departments</p>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container text-neutral-400 hover:text-on-surface border border-white/5"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-emerald-500 text-on-primary font-bold shadow-lg shadow-emerald-500/20">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container text-neutral-400 hover:text-on-surface border border-white/5 transition-all">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container text-neutral-400 hover:text-on-surface border border-white/5 transition-all">3</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container text-neutral-400 hover:text-on-surface border border-white/5 transition-all"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</footer>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-neutral-900/80 backdrop-blur-xl border-t border-white/5 flex items-center justify-around px-4 z-50">
+<button class="flex flex-col items-center gap-1 text-emerald-400">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Staff</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-neutral-500">
+<span class="material-symbols-outlined">biotech</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Labs</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-neutral-500">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Stats</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-neutral-500">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Config</span>
+</button>
+</nav>
+</body></html>

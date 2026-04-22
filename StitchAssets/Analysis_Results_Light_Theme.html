@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#752121",
+                    "secondary-container": "#d8e5e2",
+                    "on-primary-fixed": "#2d4437",
+                    "surface-variant": "#dde4e5",
+                    "primary-fixed": "#cee9d6",
+                    "inverse-on-surface": "#9c9d9d",
+                    "outline-variant": "#adb3b4",
+                    "primary-fixed-dim": "#c0dbc9",
+                    "error": "#9f403d",
+                    "tertiary-fixed": "#eaf7ee",
+                    "on-tertiary": "#effcf4",
+                    "on-secondary-fixed": "#364240",
+                    "inverse-surface": "#0c0f0f",
+                    "error-container": "#fe8983",
+                    "primary-container": "#cee9d6",
+                    "on-secondary-container": "#485452",
+                    "tertiary-dim": "#4a5650",
+                    "on-tertiary-fixed": "#404c46",
+                    "primary-dim": "#405849",
+                    "tertiary-container": "#eaf7ee",
+                    "background": "#f9f9f9",
+                    "on-surface": "#2d3435",
+                    "inverse-primary": "#d9f5e2",
+                    "surface-bright": "#f9f9f9",
+                    "tertiary": "#56625c",
+                    "on-tertiary-container": "#525e58",
+                    "surface-tint": "#4c6455",
+                    "on-primary-fixed-variant": "#496152",
+                    "surface-container-low": "#f2f4f4",
+                    "surface-container-high": "#e4e9ea",
+                    "on-error": "#fff7f6",
+                    "secondary-fixed": "#d8e5e2",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#dde4e5",
+                    "outline": "#757c7d",
+                    "primary": "#4c6455",
+                    "on-primary": "#e3feeb",
+                    "surface-dim": "#d4dbdd",
+                    "surface-container": "#ebeeef",
+                    "secondary-dim": "#495653",
+                    "error-dim": "#4e0309",
+                    "on-background": "#2d3435",
+                    "on-primary-container": "#3f5749",
+                    "surface": "#f9f9f9",
+                    "on-surface-variant": "#5a6061",
+                    "on-secondary": "#effcf8",
+                    "on-secondary-fixed-variant": "#525e5c",
+                    "secondary": "#55625f",
+                    "on-tertiary-fixed-variant": "#5d6963",
+                    "secondary-fixed-dim": "#cad7d4",
+                    "tertiary-fixed-dim": "#dbe8e0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-transition {
+            transition: background-color 0.3s ease;
+        }
+        .glass-panel {
+            background: rgba(249, 249, 249, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .ambient-shadow {
+            box-shadow: 0 16px 24px -4px rgba(45, 52, 53, 0.04);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #4c6455 0%, #405849 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface antialiased">
+<!-- SideNavBar Shell -->
+<nav class="flex flex-col fixed left-0 top-0 h-full py-8 gap-y-4 bg-slate-50 dark:bg-slate-950 h-screen w-64 border-r-0 z-40">
+<div class="px-8 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="biotech">biotech</span>
+</div>
+<div>
+<h1 class="font-serif text-lg text-emerald-900 leading-tight">Diagnostics</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-400">OA Specialist Suite</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1 pr-4">
+<a class="flex items-center gap-4 px-8 py-3 text-slate-500 dark:text-slate-400 hover:pl-10 transition-all group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-sans text-sm tracking-wide">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-8 py-3 text-slate-500 dark:text-slate-400 hover:pl-10 transition-all group" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-sans text-sm tracking-wide">Patient Analytics</span>
+</a>
+<a class="flex items-center gap-4 px-8 py-3 bg-emerald-100/50 dark:bg-emerald-900/20 text-emerald-900 dark:text-emerald-50 font-medium rounded-r-full" href="#">
+<span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+<span class="font-sans text-sm tracking-wide">OA Detection</span>
+</a>
+<a class="flex items-center gap-4 px-8 py-3 text-slate-500 dark:text-slate-400 hover:pl-10 transition-all group" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-sans text-sm tracking-wide">Diagnostic Reports</span>
+</a>
+<a class="flex items-center gap-4 px-8 py-3 text-slate-500 dark:text-slate-400 hover:pl-10 transition-all group" href="#">
+<span class="material-symbols-outlined" data-icon="clinical_notes">clinical_notes</span>
+<span class="font-sans text-sm tracking-wide">Clinical Settings</span>
+</a>
+</div>
+<div class="mt-auto px-6">
+<button class="w-full py-4 rounded-xl bg-gradient-to-br from-primary to-primary-dim text-on-primary font-medium shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+<span>New Analysis</span>
+</button>
+</div>
+</nav>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 w-full z-30 bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-sm shadow-emerald-900/5 h-20 ml-64 w-[calc(100%-16rem)]">
+<div class="flex justify-between items-center w-full px-8 h-full">
+<div class="flex items-center gap-4">
+<span class="font-serif italic text-2xl text-emerald-900 dark:text-emerald-50">Serene Clinical</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<input class="bg-surface-container-low border-none rounded-full px-6 py-2 text-sm w-64 focus:ring-1 focus:ring-primary/30 transition-all" placeholder="Search patient ID..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-full hover:bg-emerald-50/50 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-emerald-50/50 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="settings">settings</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-surface-container-highest overflow-hidden ml-2 border-2 border-primary-container">
+<img alt="Chief Clinician Profile" class="w-full h-full object-cover" data-alt="professional portrait of a senior medical clinician with graying hair wearing a clean white lab coat and stethoscope" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBL5STJzD18ZOa-JYqaBAVTh718CgMd-XN4mOUxNgfvhIizW-x22im55FqiwigWheZqhlFl6l3zShPvZTWMSL6atBtcooenkkdm4xMPOTUVIKK3KuZL5slEFMbVpJjHMvkxhlvLg6A29-4Q7uJODyPC9xl4FS7BB6xiMqdqrJUyZ8qKXtCuqOe4GfUTmXkRQDOKn0xTM_aeiduGZ_lPVlmNSA9ydU22seMOD3oIbn6nMvlilm6EbspVyzfMd1u51nsA-y1z5plhyM"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-28 pb-12 px-12 min-h-screen">
+<!-- Header Section -->
+<div class="mb-12">
+<div class="flex items-end gap-6 mb-2">
+<h2 class="font-headline text-5xl font-bold text-on-surface tracking-tight">Analysis Results</h2>
+<div class="pb-2">
+<span class="px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container text-xs font-semibold tracking-widest uppercase">Verified by AI v2.4</span>
+</div>
+</div>
+<p class="font-body text-on-surface-variant max-w-2xl leading-relaxed">
+                Detailed osteoarthritic assessment for Patient #SC-8821. Comparison between raw radiological data and neural network probability mapping.
+            </p>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Comparison View (Asymmetric) -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<div class="bg-surface-container-lowest rounded-xl p-6 ambient-shadow overflow-hidden">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline text-xl text-on-surface">Radiological Comparison</h3>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 text-xs font-medium text-primary bg-primary-container/30 px-4 py-2 rounded-lg">
+<span class="material-symbols-outlined text-sm" data-icon="zoom_in">zoom_in</span>
+                                Interactive View
+                            </button>
+<button class="flex items-center gap-2 text-xs font-medium text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                                DICOM Export
+                            </button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-3">
+<div class="relative aspect-[4/5] rounded-lg overflow-hidden bg-slate-900">
+<img alt="Raw Knee X-ray" class="w-full h-full object-cover opacity-90" data-alt="high resolution black and white medical x-ray of a human knee joint showing bone structure and joint space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEIpYYfXt75-9kaPeB08WuUg14kwTpodLw676GQuHmszqScfo44-lVqYqoNU3_KwaAMbdnKLk9WiL2_4rIMuCzlykYRo6xqjdnamlt24rfikcJmCJRpD5qhZNZkgw2VbJ9M1WNjLUobCoOWfhx5h6I_tmRU-AvTxr2uuxIsy0m8eHl57YOs2YcvheEDYy04DYEt1M7BHTEJ3FFPKP8Ge1NIOpxcaQcjKrTuqB_lRzxCaXZ5I8d0FjCqtXe6LBdoy0lZ-WdLhYn5Bw"/>
+<div class="absolute top-4 left-4 bg-slate-950/50 backdrop-blur-md px-3 py-1 rounded text-[10px] text-white font-medium uppercase tracking-widest">Raw Image</div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="relative aspect-[4/5] rounded-lg overflow-hidden bg-slate-900">
+<img alt="AI Heat-map Analysis" class="w-full h-full object-cover" data-alt="medical x-ray with colorful red and yellow heat map overlays indicating areas of high bone density and inflammation in a knee joint" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjn6iUe0o8ESRjuM4v_NN_jB_UzwKYgQgc_pyK7A1s3oBqTnU0WlY1tSDomW0ht2bQFOWj1GqH51Qsn9Zzcp-Be3Z5kwIskMt-XNrEYCh7SYgQ-jRaw3w1wdNSROoijmNBuu1IwB0fK7-Cxaxj2KNrI6Hvb5j_WgDfEV20bdxBnRJX1oeKkrzMca7wYA27Gzwjki0tEVYMNLGquBm6_zAtzaLZFOFszkJ7fmRhMSlliSEo1-8JTaojBxIbD2Vz4p7KnwdMYE3UC4Q"/>
+<div class="absolute top-4 left-4 bg-primary/80 backdrop-blur-md px-3 py-1 rounded text-[10px] text-white font-medium uppercase tracking-widest">AI Heat-map</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Clinical Observations -->
+<div class="bg-surface-container-low rounded-xl p-8">
+<h3 class="font-headline text-2xl text-on-surface mb-8">Clinical Observations</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+<div class="space-y-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary/70">Joint Space Narrowing</span>
+<p class="text-on-surface leading-relaxed text-sm">Significant medial compartment narrowing observed. Approximately 45% reduction compared to baseline from Jan 2023.</p>
+</div>
+<div class="space-y-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary/70">Osteophyte Formation</span>
+<p class="text-on-surface leading-relaxed text-sm">Definite osteophytes present at the tibial spine and peripheral margins of the femur.</p>
+</div>
+<div class="space-y-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary/70">Subchondral Sclerosis</span>
+<p class="text-on-surface leading-relaxed text-sm">Moderate sclerosis detected in the medial tibial plateau, consistent with load-bearing stress patterns.</p>
+</div>
+<div class="space-y-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary/70">Soft Tissue Assessment</span>
+<p class="text-on-surface leading-relaxed text-sm">Mild suprapatellar effusion noted. No significant baker's cyst visualization in this posterior view.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Stats & Insights -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Grade Indicator -->
+<div class="bg-surface-container-lowest rounded-xl p-8 ambient-shadow flex flex-col items-center text-center border-t-4 border-primary">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-4">Kellgren-Lawrence Scale</span>
+<div class="w-32 h-32 rounded-full border-8 border-primary-container flex flex-col items-center justify-center mb-6">
+<span class="text-4xl font-serif font-bold text-primary">Grade 3</span>
+</div>
+<h4 class="font-headline text-xl text-on-surface mb-2">Moderate Osteoarthritis</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                        Definite narrowing of joint space, moderate multiple osteophytes, and possible deformity of bone ends.
+                    </p>
+</div>
+<!-- Confidence Scores -->
+<div class="bg-surface-container-lowest rounded-xl p-6 ambient-shadow">
+<h4 class="font-headline text-lg text-on-surface mb-6">Confidence Analytics</h4>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-xs mb-2">
+<span class="text-on-surface-variant">Model Accuracy</span>
+<span class="font-bold text-primary">98.2%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 98.2%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-2">
+<span class="text-on-surface-variant">Feature Reliability</span>
+<span class="font-bold text-primary">94.5%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 94.5%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-2">
+<span class="text-on-surface-variant">Data Completeness</span>
+<span class="font-bold text-primary">100%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 100%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Wellness Insight -->
+<div class="glass-panel rounded-xl p-6 border border-primary-container/20 ambient-shadow">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="spa">spa</span>
+</div>
+<h4 class="font-headline text-on-surface">Patient Care Suggestion</h4>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-4 italic">
+                        "Consider physiotherapy focusing on quadriceps strengthening to reduce medial compartment load. Patient may benefit from hyaluronic acid supplementation."
+                    </p>
+<button class="w-full py-3 rounded-lg bg-surface-container-highest text-primary text-xs font-semibold hover:bg-primary hover:text-on-primary transition-all duration-300">
+                        View Treatment Pathway
+                    </button>
+</div>
+<!-- Action Bar -->
+<div class="flex flex-col gap-3">
+<button class="flex items-center justify-center gap-2 py-4 bg-primary text-on-primary rounded-xl font-medium shadow-md shadow-primary/10">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+                        Share with Patient
+                    </button>
+<button class="flex items-center justify-center gap-2 py-4 border border-outline-variant/30 text-on-surface-variant rounded-xl font-medium hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" data-icon="print">print</span>
+                        Print Summary Report
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

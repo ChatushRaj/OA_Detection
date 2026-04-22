@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#131313",
+                    "surface-container": "#201f1f",
+                    "on-tertiary-fixed": "#261a00",
+                    "primary-container": "#00301f",
+                    "on-secondary-container": "#aeb9d0",
+                    "on-primary": "#003825",
+                    "on-primary-container": "#00a473",
+                    "tertiary-container": "#362600",
+                    "on-background": "#e5e2e1",
+                    "on-secondary-fixed-variant": "#3c475a",
+                    "secondary": "#bcc7de",
+                    "surface": "#131313",
+                    "on-surface-variant": "#c5c6cd",
+                    "on-secondary": "#263143",
+                    "background": "#131313",
+                    "on-surface": "#e5e2e1",
+                    "inverse-primary": "#006c4b",
+                    "secondary-fixed-dim": "#bcc7de",
+                    "tertiary-fixed-dim": "#f9bd22",
+                    "on-tertiary-fixed-variant": "#5c4300",
+                    "outline-variant": "#45474c",
+                    "tertiary": "#f9bd22",
+                    "primary-fixed-dim": "#45dfa4",
+                    "on-tertiary-container": "#b78800",
+                    "surface-tint": "#45dfa4",
+                    "error": "#ffb4ab",
+                    "on-error-container": "#ffdad6",
+                    "surface-bright": "#393939",
+                    "secondary-container": "#3e495d",
+                    "on-primary-fixed": "#002114",
+                    "surface-variant": "#353534",
+                    "primary-fixed": "#68fcbf",
+                    "inverse-on-surface": "#313030",
+                    "on-primary-fixed-variant": "#005137",
+                    "surface-container-low": "#1c1b1b",
+                    "tertiary-fixed": "#ffdf9f",
+                    "on-tertiary": "#402d00",
+                    "surface-container-lowest": "#0e0e0e",
+                    "surface-container-highest": "#353534",
+                    "on-secondary-fixed": "#111c2d",
+                    "surface-container-high": "#2a2a2a",
+                    "on-error": "#690005",
+                    "secondary-fixed": "#d8e3fb",
+                    "error-container": "#93000a",
+                    "outline": "#8f9097",
+                    "inverse-surface": "#e5e2e1",
+                    "primary": "#45dfa4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "md": "12px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(53, 53, 52, 0.6);
+            backdrop-filter: blur(24px);
+        }
+        .emerald-gradient-cta {
+            background: linear-gradient(135deg, #45dfa4 0%, #00a473 100%);
+        }
+        .serenity-blur {
+            filter: blur(120px);
+            z-index: -1;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-neutral-900/60 backdrop-blur-xl shadow-2xl shadow-emerald-900/10 flex justify-between items-center px-8 h-20 w-full">
+<div class="text-2xl font-bold tracking-tighter text-emerald-400 font-headline">OASense</div>
+<div class="hidden md:flex items-center gap-8 font-headline tracking-tight">
+<a class="text-neutral-400 hover:text-neutral-200 transition-colors" href="#">Dashboard</a>
+<a class="text-neutral-400 hover:text-neutral-200 transition-colors" href="#">Patient Records</a>
+<a class="text-emerald-400 border-b-2 border-emerald-400 pb-1" href="#">Analysis</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-neutral-800/40 rounded-full px-4 py-1.5 gap-2">
+<span class="material-symbols-outlined text-neutral-400 text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs text-on-surface-variant w-40" placeholder="Search records..." type="text"/>
+</div>
+<button class="text-neutral-400 hover:bg-white/5 p-2 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-neutral-400 hover:bg-white/5 p-2 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-emerald-500/20">
+<img alt="Chief Medical Officer Profile" data-alt="Close-up portrait of a professional doctor in dark scrubs against a minimalist dark grey medical background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArV16bdZt2U0f6qo8pOzp0mgm4JbdlPE96W4Odj1s0bBFPXC5AFtxGNq4osXO-DefiHu4jeYMBs2m5Bk4xufLAZsbG2Q4kfWKSX4BS4SfkubIiTWEMSqYxwnmFrHhjp3Xb3LWxJ4XzaU8qSXu0axHhr-W5gvUNJCzx-bf816aPx-IvyP-iHuOMBkTBqT4mBZAnS0MuBpfPo8QaiV1M0GcixF89nLznBZeLlfwkQO43yMnfs248MK9XMKk0HvItyc8I7oBKoBbvm8E"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-72 fixed left-0 top-0 pt-20 bg-neutral-900 border-r border-white/5 shadow-[24px_0_48px_rgba(0,0,0,0.4)] hidden xl:flex flex-col z-40">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-400" data-icon="biotech">biotech</span>
+</div>
+<div>
+<h3 class="text-[10px] font-medium uppercase tracking-widest text-neutral-500 font-label">Clinical Suite</h3>
+<p class="text-[10px] text-emerald-400 font-label opacity-70">V2.4 Active</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-4 px-4 py-3 bg-emerald-500/10 text-emerald-400 border-r-4 border-emerald-400 translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+<span class="text-[10px] uppercase tracking-widest">Diagnostics</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-neutral-500 hover:text-neutral-300 hover:bg-neutral-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings_accessibility">settings_accessibility</span>
+<span class="text-[10px] uppercase tracking-widest">Joint Mapping</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-neutral-500 hover:text-neutral-300 hover:bg-neutral-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-[10px] uppercase tracking-widest">History</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-neutral-500 hover:text-neutral-300 hover:bg-neutral-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="text-[10px] uppercase tracking-widest">Clinical Notes</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-neutral-500 hover:text-neutral-300 hover:bg-neutral-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+<span class="text-[10px] uppercase tracking-widest">Lab Results</span>
+</a>
+</nav>
+<div class="mt-12">
+<button class="w-full emerald-gradient-cta text-on-primary py-3 rounded-md font-label text-[11px] uppercase tracking-tighter font-bold flex items-center justify-center gap-2 scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    New Screening
+                </button>
+</div>
+</div>
+<div class="mt-auto p-6 border-t border-white/5 flex flex-col gap-2">
+<a class="flex items-center gap-4 px-4 py-2 text-neutral-500 hover:text-neutral-300 transition-all" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span>
+<span class="text-[10px] uppercase tracking-widest">Support</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-2 text-neutral-500 hover:text-neutral-300 transition-all" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+<span class="text-[10px] uppercase tracking-widest">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="xl:ml-72 pt-24 pb-12 px-6 lg:px-12 relative min-h-screen">
+<!-- Background Orbs -->
+<div class="fixed top-1/4 right-0 w-[400px] h-[400px] bg-secondary-container opacity-20 serenity-blur"></div>
+<div class="fixed bottom-0 left-1/4 w-[500px] h-[500px] bg-primary-container opacity-10 serenity-blur"></div>
+<div class="max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div class="space-y-2">
+<h1 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter text-on-surface">
+                        Scanning <span class="text-primary">Center</span>
+</h1>
+<p class="text-on-surface-variant max-w-md font-body leading-relaxed">
+                        Precision joint analysis powered by neural radiology. Upload X-ray or MRI imagery for real-time osteo-density mapping.
+                    </p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-low px-6 py-4 rounded-md border-l-4 border-tertiary">
+<p class="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Queue Status</p>
+<p class="text-xl font-headline font-bold text-on-surface">3 Pending</p>
+</div>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Large Drag-and-Drop Area -->
+<div class="lg:col-span-8 space-y-8">
+<div class="relative group">
+<div class="absolute inset-0 bg-primary/5 rounded-xl border-2 border-dashed border-primary/20 transition-all group-hover:border-primary/40 group-hover:bg-primary/10"></div>
+<div class="relative min-h-[460px] flex flex-col items-center justify-center p-12 text-center">
+<div class="w-24 h-24 mb-6 rounded-full bg-surface-container-high flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-2xl shadow-black/50">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<h2 class="text-2xl font-headline font-bold mb-3 tracking-tight">Drop DICOM or X-ray files here</h2>
+<p class="text-on-surface-variant text-sm mb-8 max-w-xs">Supports .dcm, .png, .jpg and high-fidelity .tiff formats up to 1GB.</p>
+<button class="bg-surface-container-highest hover:bg-surface-bright px-10 py-3 rounded-md text-sm font-semibold transition-all shadow-lg border border-white/5">
+                                Browse Local Files
+                            </button>
+</div>
+</div>
+<!-- Progress/Analysis View -->
+<div class="bg-surface-container-low p-8 rounded-md shadow-2xl">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-lg font-headline font-bold">Active AI Processing</h3>
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] uppercase tracking-widest font-bold rounded-full">High Priority</span>
+</div>
+<div class="space-y-10">
+<!-- Item 1 -->
+<div class="relative">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-md bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img alt="Scanning Sample" class="opacity-50" data-alt="Greyscale X-ray of a human knee joint showing bone structure with high contrast shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaynpTeU6SI67eS5DIhdlihH3gZVguWXI_0G5N7qPQMsRPS3Hk4NRDnJ_uE2ORrzRaRdAApEJWroGuR02HP3uSM38JcTlmE8ivzMIB6UT13tGyga9teE6HZSCoxF7LKkqaY0vgj8YTuFwXpWSvAFAuLVc90_nzKUwDY5gvIs_waIfdeqoS-r4bvC24TmvW_2PJa2W2miGC2fPm0FE9Me6fsox_MhVUKfA1AmaukRP5ioAYiURkfOPH4teojY7Nm5cYo_j2qmNABD4"/>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Patient_ID_8829_Knee.dcm</p>
+<p class="text-[11px] text-on-surface-variant">Scanning lateral meniscus for micro-fractures...</p>
+</div>
+</div>
+<span class="text-sm font-headline text-primary font-bold">84%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 84%"></div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="relative">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-md bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img alt="Scanning Sample" class="opacity-50" data-alt="Abstract medical imaging visual with soft blue and green light refractions on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj-VjO9sQB65JBRNs7cqPm2X3ClScnqs81pqgIt2VKYHjDvXEqs2S9xzblSOV1QAyH9a1ce0R2qvmrGX0vwOeaGtJg80QB1GI2r9bdE3DMOP26pozJquzdjYYIRV9lB3dNgwKPUMH8iAzj6UYOskBAu6-PFuDqeITku1Hw5CA_w9Gwsuq4s3oR3cHGPJGfVczVkOGtamPwZOzSEZm20jEyYLz_t8igU1_JVXyTjQTNBafqtey1b5dPt8GnqQRsRXKKK4hxpJWQIsk"/>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Cartilage_Map_V4.tiff</p>
+<p class="text-[11px] text-on-surface-variant">Generating heat-map of synovial fluid density</p>
+</div>
+</div>
+<span class="text-sm font-headline text-primary font-bold">32%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary/40 rounded-full" style="width: 32%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Uploads Sidebar -->
+<div class="lg:col-span-4 space-y-8">
+<div class="bg-surface-container p-6 rounded-md shadow-[0px_24px_48px_rgba(0,0,0,0.4)]">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline font-bold text-lg">Recent Archives</h3>
+<button class="text-primary text-[10px] uppercase font-bold tracking-widest hover:underline">View All</button>
+</div>
+<div class="space-y-4">
+<!-- Card 1 -->
+<div class="p-4 bg-surface-container-low rounded-lg hover:bg-surface-container-high transition-all cursor-pointer group">
+<div class="flex gap-4">
+<div class="w-14 h-14 rounded bg-surface-container-highest overflow-hidden">
+<img alt="Archive X-ray" class="object-cover w-full h-full opacity-60 group-hover:opacity-100 transition-opacity" data-alt="High quality monochrome medical x-ray of human chest cavity showing ribs and spine" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7jx7pH8iSZ542XnnR3LAo38mRRfhMzRqTnX2Mv5gWfJ1IobVvF_ltBTf_nZms3hA3DJCCluCWHytxPgkf4_btQ81sPOMU1YTiNPMLknlsodkFcOSchrsz4we46cauEW0FcfB8YqS84tQ0ozHpR8GmpkCNGYMfQjVC1xUsrR7uMJCMon4XpoRcLf6DDFq5Q4_BzIRuS0L6s84NZhpYFNWZsJaASDm3qdyZMWq6SfxUsPCjgZu5VfFy3AlutPDReprEZnjxJRfnS-g"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<p class="text-xs font-bold text-on-surface">Sarah J. — Spine</p>
+<span class="text-[9px] text-neutral-500 uppercase">2h ago</span>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-1">L4-L5 Compression detected</p>
+<div class="flex gap-2 mt-2">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="text-[9px] text-error uppercase font-medium">Critical</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-4 bg-surface-container-low rounded-lg hover:bg-surface-container-high transition-all cursor-pointer group">
+<div class="flex gap-4">
+<div class="w-14 h-14 rounded bg-surface-container-highest overflow-hidden">
+<img alt="Archive MRI" class="object-cover w-full h-full opacity-60 group-hover:opacity-100 transition-opacity" data-alt="Detail of an MRI scan of the brain with intricate grey matter patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsLzAZXbQIMJEwb1lLfcKIEtfKWgcMmP81mV72uKdE-UQwgmz0pkLfM9GzGdYVWUzMLuoCvj4cRXBpZzejqexVFkoNvUKogWqksMacQsQE7kM884pNppZJxS7V-M-cRx2DzLn25H61BNjbRyBN-Hh-IwNzWGOHB3MWwjjcZUQaUd0hvWfvyWPE64dYtJXCHhm3VkkLeN-MyqMHfhf6dhzdB-FayaZxNtMd-9OKRHfWi4UCEptwnhNnPY0Gmu9Aip6ibKgodTRb-tc"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<p class="text-xs font-bold text-on-surface">Mark T. — Hip</p>
+<span class="text-[9px] text-neutral-500 uppercase">5h ago</span>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-1">Symmetry analysis complete</p>
+<div class="flex gap-2 mt-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-[9px] text-primary uppercase font-medium">Normal</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-4 bg-surface-container-low rounded-lg hover:bg-surface-container-high transition-all cursor-pointer group">
+<div class="flex gap-4">
+<div class="w-14 h-14 rounded bg-surface-container-highest overflow-hidden">
+<img alt="Archive Hand" class="object-cover w-full h-full opacity-60 group-hover:opacity-100 transition-opacity" data-alt="Monochrome image of hand bones in an x-ray scan against a deep black background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2fguMIQTAQ1u0QwrIYrjlMiIz60oxwve8zzYFXpqqUAPVAXPDQpcxRN9et-WFhpzKIZVBtJjojSw4qJTUiSxjwI2ACWqto83HR0uAVXAHNofsSuXAVkDbH-d3QoclM-vWXd_OB_KAzCwgf6RvR1FqeI24uWuaNPjwpTIN7eyTADveWcIlrm1ojUboNCzMa5raI4AKhDwbjYQeKFn0JeBxNqdsIyy4c632eVcHsCxtjoHx6GJwlRWehJtP8nnmjbTKqq6-fZ5tBSc"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<p class="text-xs font-bold text-on-surface">Alex W. — Wrist</p>
+<span class="text-[9px] text-neutral-500 uppercase">Yesterday</span>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-1">Post-operative review</p>
+<div class="flex gap-2 mt-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-[9px] text-tertiary uppercase font-medium">Follow-up</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Insights Box -->
+<div class="bg-primary-container/20 p-6 rounded-md border border-primary/20 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full serenity-blur transition-transform group-hover:scale-150"></div>
+<span class="material-symbols-outlined text-primary mb-4" data-icon="auto_awesome">auto_awesome</span>
+<h4 class="font-headline font-bold text-primary mb-2">Radiology Assistant</h4>
+<p class="text-xs text-on-primary-container leading-relaxed">
+                            "I've noticed a pattern of micro-calcifications in the last 12 scans. Would you like to enable the high-sensitivity threshold for the next analysis?"
+                        </p>
+<button class="mt-4 text-[10px] uppercase tracking-widest font-bold text-on-surface hover:text-primary transition-colors">Adjust Parameters</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for quick upload -->
+<button class="fixed bottom-8 right-8 w-16 h-16 rounded-full emerald-gradient-cta shadow-2xl flex items-center justify-center text-on-primary scale-100 hover:scale-110 active:scale-95 transition-all md:hidden">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+</body></html>

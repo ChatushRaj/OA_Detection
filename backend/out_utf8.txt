@@ -1,0 +1,87 @@
+  Database already has users, skipping seed.
+Testing as Dr. Sarah Johnson Edited (ID: 2) with 6 patients
+--------------------------------------------------
+Q: how many patients do I have?
+A:
+You currently have **6** patient(s) across all records.
+--------------------------------------------------
+Q: which patients do I have?
+A:
+**Patients (6 total):**
+
+• 1233 (Patient ID: 6)
+• abc (Patient ID: 4)
+• Jane Test (Patient ID: 3)
+• Jane Doe (Patient ID: 5)
+• 1 (Patient ID: 2)
+• John Smith (Patient ID: 1)
+
+--------------------------------------------------
+Q: how many of my patients are having grade 3?
+A:
+You currently have **2** patient(s) with Grade 3 scans.
+--------------------------------------------------
+Q: which patients have moderate oa?
+A:
+**Patients with Grade 3 scans (2 total):**
+
+• 1233 (Patient ID: 6)
+• Jane Test (Patient ID: 3)
+
+--------------------------------------------------
+Q: how many of my patients are having grade 4?
+A:
+You currently have **4** patient(s) with Grade 4 scans.
+--------------------------------------------------
+Q: which patients have severe oa?
+A:
+**Patients with Grade 4 scans (4 total):**
+
+• abc (Patient ID: 4)
+• Jane Doe (Patient ID: 5)
+• Jane Test (Patient ID: 3)
+• 1 (Patient ID: 2)
+
+--------------------------------------------------
+Q: how many scans do I have?
+A:
+There are **12** scan(s) in your records.
+--------------------------------------------------
+Q: show me all my scans
+A:
+**All Scans (12 total):**
+
+• Scan ID 12 for 1233 — **Grade 3 – Moderate** (Grade 3)
+• Scan ID 11 for abc — **Grade 4 – Severe** (Grade 4)
+• Scan ID 10 for Jane Test — **Grade 3 – Moderate** (Grade 3)
+• Scan ID 9 for Jane Doe — **Grade 4 – Severe** (Grade 4)
+• Scan ID 8 for Jane Test — **Grade 4 – Severe** (Grade 4)
+
+*...and 7 more. View the 'Scans' page for full details.*
+--------------------------------------------------
+Q: how many moderate scans do I have?
+A:
+There are **2** Grade 3 scan(s) in your records.
+--------------------------------------------------
+Q: what is OA?
+A:
+**Osteoarthritis (OA)** is the most common form of arthritis, affecting millions worldwide. It occurs when the protective cartilage that cushions the ends of bones wears down over time. While it can damage any joint, OA most commonly affects joints in the hands, knees, hips, and spine.
+
+**Key facts:**
+• Most common in adults over 50
+• Symptoms include pain, stiffness, and swelling
+• Risk factors: age, obesity, joint injuries, genetics
+• No cure, but treatments can slow progression and manage symptoms
+--------------------------------------------------
+Q: details of alice
+A:
+**All Scans (12 total):**
+
+• Scan ID 12 for 1233 — **Grade 3 – Moderate** (Grade 3)
+• Scan ID 11 for abc — **Grade 4 – Severe** (Grade 4)
+• Scan ID 10 for Jane Test — **Grade 3 – Moderate** (Grade 3)
+• Scan ID 9 for Jane Doe — **Grade 4 – Severe** (Grade 4)
+• Scan ID 8 for Jane Test — **Grade 4 – Severe** (Grade 4)
+
+*...and 7 more. View the 'Scans' page for full details.*
+--------------------------------------------------

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Serene Clinical | OA Detection &amp; Scanning Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-transition {
+            transition: background-color 0.3s ease;
+        }
+        .glass-panel {
+            background: rgba(249, 249, 249, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3, .serif-text {
+            font-family: 'Noto Serif', serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#752121",
+                      "secondary-container": "#d8e5e2",
+                      "on-primary-fixed": "#2d4437",
+                      "surface-variant": "#dde4e5",
+                      "primary-fixed": "#cee9d6",
+                      "inverse-on-surface": "#9c9d9d",
+                      "outline-variant": "#adb3b4",
+                      "primary-fixed-dim": "#c0dbc9",
+                      "error": "#9f403d",
+                      "tertiary-fixed": "#eaf7ee",
+                      "on-tertiary": "#effcf4",
+                      "on-secondary-fixed": "#364240",
+                      "inverse-surface": "#0c0f0f",
+                      "error-container": "#fe8983",
+                      "primary-container": "#cee9d6",
+                      "on-secondary-container": "#485452",
+                      "tertiary-dim": "#4a5650",
+                      "on-tertiary-fixed": "#404c46",
+                      "primary-dim": "#405849",
+                      "tertiary-container": "#eaf7ee",
+                      "background": "#f9f9f9",
+                      "on-surface": "#2d3435",
+                      "inverse-primary": "#d9f5e2",
+                      "surface-bright": "#f9f9f9",
+                      "tertiary": "#56625c",
+                      "on-tertiary-container": "#525e58",
+                      "surface-tint": "#4c6455",
+                      "on-primary-fixed-variant": "#496152",
+                      "surface-container-low": "#f2f4f4",
+                      "surface-container-high": "#e4e9ea",
+                      "on-error": "#fff7f6",
+                      "secondary-fixed": "#d8e5e2",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#dde4e5",
+                      "outline": "#757c7d",
+                      "primary": "#4c6455",
+                      "on-primary": "#e3feeb",
+                      "surface-dim": "#d4dbdd",
+                      "surface-container": "#ebeeef",
+                      "secondary-dim": "#495653",
+                      "error-dim": "#4e0309",
+                      "on-background": "#2d3435",
+                      "on-primary-container": "#3f5749",
+                      "surface": "#f9f9f9",
+                      "on-surface-variant": "#5a6061",
+                      "on-secondary": "#effcf8",
+                      "on-secondary-fixed-variant": "#525e5c",
+                      "secondary": "#55625f",
+                      "on-tertiary-fixed-variant": "#5d6963",
+                      "secondary-fixed-dim": "#cad7d4",
+                      "tertiary-fixed-dim": "#dbe8e0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.5rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Noto Serif"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 bg-slate-50/70 backdrop-blur-xl shadow-sm shadow-emerald-900/5 tonal-transition">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-serif italic text-emerald-900">Serene Clinical</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="text-slate-500 hover:text-emerald-700 transition-colors duration-300" href="#">Dashboard</a>
+<a class="text-emerald-900 font-semibold border-b-2 border-emerald-800" href="#">OA Detection</a>
+<a class="text-slate-500 hover:text-emerald-700 transition-colors duration-300" href="#">Reports</a>
+</nav>
+<div class="flex items-center gap-4 ml-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-emerald-50/50 p-2 rounded-full duration-200">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-emerald-50/50 p-2 rounded-full duration-200">settings</span>
+<img class="w-10 h-10 rounded-full object-cover border border-primary-fixed" data-alt="portrait of a professional chief clinician in a modern medical setting with warm soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD2uuaWr5v2LMoUlAlDjM91uKt1bsmUPvO4AbI54MlFTBGb_C5S6WOH9O6laEcvhAhA0SLsXJCTy2sXzEZXAr3PnKsFNSMhPK5YwOVsZGhAQ416mpOwks3hSxHsHWEdR3dMNj1PJQXkzvwOx64bopDy1WdqYc1YQAmKlOBrA64pptYaBvgL9lm0ihZM2dnGshZo3HTyk6zBl2qc4EXdMho-9rgMXRkkg9FKU5JKdql0GWohj9awBHaiPYBJdxYhaXusPZIwIK43oA"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Hidden on small screens) -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-full w-64 py-8 gap-y-4 bg-slate-50 border-r-0 pt-28">
+<div class="px-6 mb-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">biotech</span>
+</div>
+<div>
+<h2 class="font-serif text-lg text-emerald-900 leading-none">Diagnostics</h2>
+<p class="font-sans text-[10px] tracking-widest uppercase text-slate-500 mt-1">OA Specialist Suite</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col flex-grow">
+<a class="flex items-center gap-4 px-6 py-3 text-slate-500 hover:pl-8 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-sans text-sm tracking-wide">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-slate-500 hover:pl-8 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-sans text-sm tracking-wide">Patient Analytics</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 bg-emerald-100/50 text-emerald-900 font-medium rounded-r-full" href="#">
+<span class="material-symbols-outlined">biotech</span>
+<span class="font-sans text-sm tracking-wide">OA Detection</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-slate-500 hover:pl-8 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-sans text-sm tracking-wide">Diagnostic Reports</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-slate-500 hover:pl-8 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">clinical_notes</span>
+<span class="font-sans text-sm tracking-wide">Clinical Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full py-3 bg-gradient-to-br from-primary to-primary-dim text-on-primary rounded-xl font-medium shadow-lg shadow-primary/10 hover:scale-[0.98] transition-transform">
+                New Analysis
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-28 px-8 pb-12">
+<div class="max-w-6xl mx-auto">
+<!-- Header Section -->
+<div class="mb-12">
+<h1 class="text-4xl md:text-5xl font-headline text-on-surface mb-2">OA Detection Center</h1>
+<p class="text-on-surface-variant max-w-xl leading-relaxed">
+                    Upload medical imaging for instantaneous Osteoarthritis assessment. Our proprietary AI models provide depth-analysis of joint spacing and cartilage density.
+                </p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Large Drag-and-Drop Area -->
+<div class="lg:col-span-8 group">
+<div class="relative h-[500px] rounded-xl bg-surface-container-lowest border-2 border-dashed border-outline-variant/30 flex flex-col items-center justify-center p-12 transition-all hover:border-primary/40 hover:bg-surface-container-low/50 cursor-pointer">
+<div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/fine-print.png')] pointer-events-none"></div>
+<div class="w-24 h-24 mb-6 rounded-full bg-primary-container/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-5xl">cloud_upload</span>
+</div>
+<h2 class="text-2xl font-headline text-on-surface mb-3">Drop X-ray images here</h2>
+<p class="text-on-surface-variant text-center max-w-md mb-8">
+                            Supports DICOM, high-resolution JPEG, or PNG formats. Files are encrypted and processed locally for maximum privacy.
+                        </p>
+<button class="px-8 py-3 bg-surface-container-highest text-on-surface rounded-full font-medium hover:bg-primary hover:text-on-primary transition-all duration-300">
+                            Browse Local Files
+                        </button>
+<!-- Subtle Metadata Badges -->
+<div class="absolute bottom-6 left-6 right-6 flex justify-between items-center opacity-60 group-hover:opacity-100 transition-opacity">
+<div class="flex gap-4">
+<span class="flex items-center gap-1 text-xs font-label uppercase tracking-tighter"><span class="material-symbols-outlined text-sm">check_circle</span> DICOM v3.0</span>
+<span class="flex items-center gap-1 text-xs font-label uppercase tracking-tighter"><span class="material-symbols-outlined text-sm">security</span> HIPAA Compliant</span>
+</div>
+<span class="text-xs font-label uppercase tracking-tighter">Max 50MB per image</span>
+</div>
+</div>
+</div>
+<!-- Analysis Progress Sidebar -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Current Analysis Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/10">
+<h3 class="font-headline text-lg mb-6">Active Analysis</h3>
+<div class="space-y-8">
+<!-- Analysis Item 1 -->
+<div class="relative">
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm font-medium text-on-surface">Patient #9928-XR</span>
+<span class="text-xs text-primary font-bold">84%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 84%"></div>
+</div>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant mt-2">Segmenting Femur Head...</p>
+</div>
+<!-- Analysis Item 2 -->
+<div class="relative">
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm font-medium text-on-surface">Patient #1024-XR</span>
+<span class="text-xs text-on-surface-variant">32%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-dim rounded-full" style="width: 32%"></div>
+</div>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant mt-2">Uploading Tonal Map...</p>
+</div>
+</div>
+</div>
+<!-- AI Insights Mini-Card -->
+<div class="bg-primary-container/20 p-6 rounded-xl relative overflow-hidden">
+<span class="material-symbols-outlined absolute -top-2 -right-2 text-primary opacity-10 text-8xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h3 class="font-headline text-lg mb-2 relative z-10">AI Capability</h3>
+<p class="text-sm text-on-primary-container leading-relaxed relative z-10">
+                            Our current model (v4.2) identifies Kellgren-Lawrence grading with 98.4% clinical precision.
+                        </p>
+<div class="mt-4 flex gap-2 relative z-10">
+<span class="px-2 py-1 bg-primary/10 text-[10px] rounded uppercase font-bold text-primary">KL-Grade</span>
+<span class="px-2 py-1 bg-primary/10 text-[10px] rounded uppercase font-bold text-primary">Joint Gap</span>
+</div>
+</div>
+</div>
+<!-- Recent Uploads Section -->
+<div class="lg:col-span-12 mt-4">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-2xl font-headline text-on-surface">Recent Scans</h2>
+<button class="text-sm text-primary font-medium hover:underline">View All Records</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Recent Item Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 flex gap-4 hover:shadow-md transition-shadow cursor-pointer">
+<div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover grayscale opacity-80" data-alt="high contrast black and white medical x-ray of a human knee joint showing clinical detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9Z38Q33kEHecBfb2bMIJFRxwBsNUA0zcaoL9eIMA__58qRPAGOhC-z6TS6zRHO0kouU70jxMdSze51ttVSGzJmJm5wlTIZPFM2d8tXRWTDF7lff2b1hocXyN5AtVt1eMq8WsbQ0gG3w8vBOvHyVj4tdCkNYJX5hLhGEVV9aBfeuC-Lffd0_v_RxUp7M1D_gSOUVndwA9wk4RlFkhGAB8Q9QSF87j8UavKN-NE-KmuaDA6GohNhHZO22FWZTQAlKccNXNhBQJhkeg"/>
+</div>
+<div class="flex flex-col justify-center">
+<span class="text-sm font-semibold text-on-surface">Eleanor Vance</span>
+<span class="text-xs text-on-surface-variant">Knee (Left) • KL Grade 3</span>
+<span class="text-[10px] text-slate-400 mt-1">Uploaded 2h ago</span>
+</div>
+<div class="ml-auto self-center">
+<span class="material-symbols-outlined text-primary">chevron_right</span>
+</div>
+</div>
+<!-- Recent Item Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 flex gap-4 hover:shadow-md transition-shadow cursor-pointer">
+<div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover grayscale opacity-80" data-alt="professional medical imaging displaying a detailed hip joint x-ray for orthopedic diagnostic analysis" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR0uWcEfBbrYgdlSMDPpkCBGEADvb72UC8Ezi9nVM0HH5upwsVK6iQXdQEWJAGSeorVF2rqcYc9QTpvmYE3K-CX0i7ajzWmDxWixjuyhb7h8mEj-p0F_Repo2TwWPJmqfL3HrjS2TSotSomwR9IV2zlIIFkPbI1IeyTlLYs1iFVr1P3ig7FSapmE4IJzhxJoniaLAOhDdpG9hCnG8q8aJ23eO8rtLZ5sUvncXuVwqDIksmXdJU0wWFzCSoxrl4LYI0Qma_sWBQZ3A"/>
+</div>
+<div class="flex flex-col justify-center">
+<span class="text-sm font-semibold text-on-surface">Arthur Pendragon</span>
+<span class="text-xs text-on-surface-variant">Hip (Right) • KL Grade 1</span>
+<span class="text-[10px] text-slate-400 mt-1">Uploaded 5h ago</span>
+</div>
+<div class="ml-auto self-center">
+<span class="material-symbols-outlined text-primary">chevron_right</span>
+</div>
+</div>
+<!-- Recent Item Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 flex gap-4 hover:shadow-md transition-shadow cursor-pointer">
+<div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover grayscale opacity-80" data-alt="close up skeletal x-ray showing bone structure of a hand with sharp medical precision" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP6E4Qjzw4MiubbqDZc8t5HRhMrscIZNn-jw23sqpFW3cB-XHOs-oiOQfaIYcTqBUyYtsdTMwvcdHsLk5GiuT4_IN3I2sX9IUNI_8N4w-YdxGI-zYg6DqM17T7TKexLee-lxFDh3kaaSqsJGz3xVRdwhSteYjoxX6LqLkrMDBQ67ahtNivsLqHJE6jDTXwDCCE5EwSMbSTStSnkTvMWo8gQl925rSohm6ivM5jZEm_90P9AK64u2TtOOQr6-CMs7Wnc0KLzQpMtJs"/>
+</div>
+<div class="flex flex-col justify-center">
+<span class="text-sm font-semibold text-on-surface">Diana Prince</span>
+<span class="text-xs text-on-surface-variant">Wrist (Bilateral) • Normal</span>
+<span class="text-[10px] text-slate-400 mt-1">Uploaded Yesterday</span>
+</div>
+<div class="ml-auto self-center">
+<span class="material-symbols-outlined text-primary">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-slate-50/90 backdrop-blur-md flex justify-around items-center px-4 z-50">
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px]">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-emerald-900 font-semibold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">biotech</span>
+<span class="text-[10px]">Scan</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">description</span>
+<span class="text-[10px]">Reports</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px]">Profile</span>
+</button>
+</nav>
+</body></html>

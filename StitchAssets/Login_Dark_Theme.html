@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Serene Clinical | Secure Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #131313;
+        }
+        .font-serif {
+            font-family: 'Manrope', sans-serif;
+        }
+        .serenity-blur {
+            filter: blur(80px);
+            border-radius: 50%;
+        }
+        .glass-panel {
+            backdrop-filter: blur(24px);
+            background: rgba(28, 27, 27, 0.6);
+        }
+        .cta-gradient {
+            background: linear-gradient(135deg, #45dfa4 0%, #00a473 100%);
+        }
+        .ghost-border {
+            border: 1px solid rgba(143, 144, 151, 0.15);
+        }
+        /* Custom Material Symbols logic */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#131313",
+                        "surface": "#131313",
+                        "on-error": "#690005",
+                        "secondary-fixed-dim": "#bcc7de",
+                        "on-primary": "#003825",
+                        "on-background": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "on-secondary": "#263143",
+                        "on-surface-variant": "#c5c6cd",
+                        "inverse-on-surface": "#313030",
+                        "inverse-primary": "#006c4b",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#ffdf9f",
+                        "surface-container-highest": "#353534",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-container": "#00a473",
+                        "on-secondary-fixed": "#111c2d",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "primary-fixed": "#68fcbf",
+                        "on-primary-fixed-variant": "#005137",
+                        "surface-container": "#201f1f",
+                        "surface-bright": "#393939",
+                        "secondary-fixed": "#d8e3fb",
+                        "on-secondary-container": "#aeb9d0",
+                        "surface-tint": "#45dfa4",
+                        "tertiary-container": "#362600",
+                        "on-tertiary-fixed": "#261a00",
+                        "primary-container": "#00301f",
+                        "inverse-surface": "#e5e2e1",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary": "#bcc7de",
+                        "outline-variant": "#45474c",
+                        "tertiary": "#f9bd22",
+                        "primary-fixed-dim": "#45dfa4",
+                        "secondary-container": "#3e495d",
+                        "surface-container-high": "#2a2a2a",
+                        "on-primary-fixed": "#002114",
+                        "surface-variant": "#353534",
+                        "outline": "#8f9097",
+                        "on-tertiary-container": "#b78800",
+                        "primary": "#45dfa4",
+                        "surface-dim": "#131313",
+                        "on-tertiary": "#402d00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "12px",
+                        "xl": "16px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary/30 min-h-screen overflow-x-hidden">
+<!-- Ambient Serenity Blurs -->
+<div class="fixed top-[-10%] right-[-10%] w-[500px] h-[500px] bg-secondary-container/20 serenity-blur -z-10"></div>
+<div class="fixed bottom-[-5%] left-[-5%] w-[400px] h-[400px] bg-primary-container/10 serenity-blur -z-10"></div>
+<!-- Header Navigation (Non-Shell as per Rule: suppress nav for login) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 bg-white/5 backdrop-blur-xl">
+<div class="flex items-center gap-2">
+<span class="text-2xl font-serif italic font-bold text-primary">Serene Clinical</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-surface-container-high transition-colors" title="Toggle Theme">
+<span class="material-symbols-outlined text-on-surface-variant">contrast</span>
+</button>
+</div>
+</header>
+<main class="flex min-h-screen pt-20">
+<!-- Left Side: Editorial Content -->
+<div class="hidden lg:flex flex-col justify-center w-1/2 px-20 relative">
+<div class="space-y-6 max-w-lg">
+<span class="inline-block px-3 py-1 bg-primary-container text-primary text-[10px] font-bold tracking-[0.2em] uppercase rounded-full">Secure Access</span>
+<h1 class="text-6xl font-headline font-extrabold text-on-surface leading-[1.1] tracking-tighter">
+                    Clinical <br/>
+<span class="text-primary italic">Oversight</span> <br/>
+                    Redefined.
+                </h1>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-sm font-body">
+                    Enter the sanctuary of clinical management. Secure, serene, and designed for high-performance practitioners.
+                </p>
+</div>
+<!-- Asymmetric Accent Card -->
+<div class="mt-16 flex gap-4">
+<div class="w-24 h-24 rounded-lg overflow-hidden ghost-border">
+<img class="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 transition-all duration-700" data-alt="Close up of a premium stethoscope resting on a dark, textured medical journal in soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwjB7v0KcZ4JDWdxl2hq4xiD2lk3CF-38OPVODhq-bwScRsQ0u6B-dlIEi9ciC2_z3JpsYyBtclH3B_gDryvmCYxZWKFI7WB6eGYqhEONgjkH2tDMTxw9vqS_wa7jm5BAqUFtj2gjyuCU5v4qjP_i7Ba9jd4mHMeQxlKe9FUshtDeAqP_QgcQB1rEsqXNfnEyb-EQX6cTqKCNiwdcziSThBfr1sWZG3Tigj7VgZ3rtrQ_xTIYJpnLN-fYBcuW13wD2HEItF75LsqM"/>
+</div>
+<div class="flex flex-col justify-end">
+<span class="text-primary font-serif italic text-sm">Practitioner Verified</span>
+<span class="text-on-surface-variant text-[10px] tracking-widest uppercase">Trusted by 12,000+ Clinics</span>
+</div>
+</div>
+</div>
+<!-- Right Side: Login Form -->
+<div class="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12">
+<div class="w-full max-w-[480px] space-y-8">
+<!-- Login Card -->
+<div class="glass-panel p-10 rounded-[24px] shadow-2xl relative overflow-hidden ghost-border">
+<!-- Subtle Interior Glow -->
+<div class="absolute -top-20 -right-20 w-40 h-40 bg-primary/5 blur-3xl rounded-full"></div>
+<div class="relative z-10">
+<div class="mb-10 text-center lg:text-left">
+<h2 class="text-3xl font-headline font-bold text-on-surface mb-2 tracking-tight">Welcome Back</h2>
+<p class="text-on-surface-variant text-sm">Please enter your credentials to access the portal.</p>
+</div>
+<form class="space-y-6">
+<!-- Input Group -->
+<div class="space-y-2">
+<label class="block text-[10px] font-bold tracking-widest text-on-surface-variant uppercase ml-1">Medical Email</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">mail</span>
+<input class="w-full bg-surface-container-lowest border-none ring-1 ring-outline-variant/15 focus:ring-primary text-on-surface rounded-lg py-4 pl-12 pr-4 transition-all placeholder:text-outline-variant/50" placeholder="practitioner@serene.clinic" type="email"/>
+</div>
+</div>
+<!-- Input Group -->
+<div class="space-y-2">
+<div class="flex justify-between items-center ml-1">
+<label class="block text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">Password</label>
+<a class="text-[10px] font-bold tracking-widest text-primary hover:text-primary-fixed-dim uppercase transition-colors" href="#">Forgot Access?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">lock</span>
+<input class="w-full bg-surface-container-lowest border-none ring-1 ring-outline-variant/15 focus:ring-primary text-on-surface rounded-lg py-4 pl-12 pr-12 transition-all placeholder:text-outline-variant/50" placeholder="••••••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-3 py-2">
+<input class="w-5 h-5 rounded border-outline-variant/30 bg-surface-container text-primary focus:ring-primary/20" id="remember" type="checkbox"/>
+<label class="text-sm text-on-surface-variant select-none" for="remember">Maintain secure session for 8 hours</label>
+</div>
+<button class="w-full cta-gradient text-on-primary font-bold py-4 rounded-lg shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex justify-center items-center gap-2 group" type="submit">
+                                Sign In to Sanctuary
+                                <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+<div class="mt-10 pt-8 border-t border-outline-variant/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+<span class="text-xs text-on-surface-variant">New to Serene Clinical?</span>
+<button class="px-6 py-2 rounded-full ghost-border text-xs font-bold text-on-surface hover:bg-surface-container-high transition-all">Request Onboarding</button>
+</div>
+</div>
+</div>
+<!-- Footer Links -->
+<div class="flex justify-center gap-8 px-4">
+<a class="text-[10px] font-bold tracking-widest text-outline-variant hover:text-on-surface uppercase transition-colors" href="#">HIPAA Compliance</a>
+<a class="text-[10px] font-bold tracking-widest text-outline-variant hover:text-on-surface uppercase transition-colors" href="#">Privacy Protocol</a>
+<a class="text-[10px] font-bold tracking-widest text-outline-variant hover:text-on-surface uppercase transition-colors" href="#">Support</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Aesthetic Feature: Floating Meta-Data (Bottom Right) -->
+<div class="fixed bottom-8 right-8 hidden xl:block">
+<div class="glass-panel ghost-border px-4 py-3 rounded-xl flex items-center gap-4">
+<div class="flex -space-x-3">
+<img class="w-8 h-8 rounded-full border-2 border-surface object-cover" data-alt="Portrait of a professional female doctor in white coat with friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZO7YcH_QgIh09tK48336Tdm4C0ZOJ3Yt7LCOeAGR3sZ0Pbzkf2MQCb2oiBvqVMyX9TC4iRClo3doVPamFemz6aZr5np_Zjwi2D48BjoSdb8XXBQOHSNHUJNK8iR6P-t4V3_u_OUHOBXwGtbcdnbJXuAxhDGOa0ylgSxacNbLmNwUIe5_OK1namlpNFo2ApKC9Sp87AVEThwe-gco6etzR12NR96uJq6dCumXE6wRe8tkCX70PkjFF0YqGs_41yo4Amf3tXT8136M"/>
+<img class="w-8 h-8 rounded-full border-2 border-surface object-cover" data-alt="Portrait of a focused male physician in professional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd3OJgP67W24Bfe_5CjRrr3Q0YSJw64lNVrxUTzjdQ371yAKjxw4uaDJrUrfkb6Wm_5VAeEWGJn7hkEvQFwQnlC2HWsJtFzA49iOhlGv8BrePqU5N_bkVzSCtObSq6hNQf_XAaANASQLSy9q3H5jvplHFBY5RCJCTbxpCl9Qz_Vct4vCEdBkeAs8fsebngCbGB2makulbsrcchLtjhB_zHWVR-0VoC8tLZjHnjWdljAf5kZpEPC7W7fChCwhlRiwbvZOk-2kI9aaU"/>
+</div>
+<div>
+<p class="text-[10px] font-bold text-primary uppercase tracking-tighter">Live Status</p>
+<p class="text-[11px] text-on-surface-variant">42 Active Practitioners Online</p>
+</div>
+</div>
+</div>
+</body></html>
