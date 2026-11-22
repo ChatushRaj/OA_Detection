@@ -17,3 +17,10 @@ backend/uploads/
 *.pth
 *log*.txt
 *out*.txt
+
+# logs and local artifacts
+*.log
+*_log.txt
+out*.txt
+*.pth
+*.db
