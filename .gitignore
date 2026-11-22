@@ -1,26 +1,35 @@
+# Dependencies and build output
 node_modules/
+.next/
 .expo/
 dist/
 build/
-.next/
+
+# Python
 __pycache__/
 *.pyc
+.venv/
+venv/
+
+# Environment
 .env
 .env.*
 !.env.example
-.DS_Store
-*.log
+
+# Model weights, databases and uploads (large or private)
+*.pth
 *.db
 *.sqlite
 *.sqlite3
 backend/uploads/
-*.pth
+
+# Logs and local output
+*.log
 *log*.txt
 *out*.txt
 
-# logs and local artifacts
-*.log
-*_log.txt
-out*.txt
-*.pth
-*.db
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

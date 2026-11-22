@@ -15,10 +15,10 @@ def test_health():
         init_db()
         session = SessionLocal()
         user_count = session.query(User).count()
-        print(f"✅ Database connected. Found {user_count} users.")
+        print(f"[OK] Database connected. Found {user_count} users.")
         session.close()
     except Exception as e:
-        print(f"❌ Database error: {e}")
+        print(f"[FAIL] Database error: {e}")
         return False
 
     # 2. Check Model
@@ -26,11 +26,11 @@ def test_health():
     try:
         model, device = load_model()
         if model is not None:
-            print(f"✅ Model loaded successfully on {device}.")
+            print(f"[OK] Model loaded successfully on {device}.")
         else:
             print("⚠️ Model created with random weights (fallback mode).")
     except Exception as e:
-        print(f"❌ Model loading failed: {e}")
+        print(f"[FAIL] Model loading failed: {e}")
         return False
 
     # 3. Check Torch/CUDA

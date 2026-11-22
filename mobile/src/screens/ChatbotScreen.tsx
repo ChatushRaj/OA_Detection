@@ -63,7 +63,7 @@ export default function ChatbotScreen() {
       "Message Options ⚙️",
       "What would you like to do with this message?",
       [
-        { text: "Cancel ❌", style: "cancel" },
+        { text: "Cancel", style: "cancel" },
         { text: "Edit ✏️", onPress: () => handleEditMessage(item) },
         { text: "Delete 🗑️", onPress: () => handleDeleteMessage(item), style: "destructive" }
       ]

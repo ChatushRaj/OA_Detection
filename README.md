@@ -1,80 +1,202 @@
-# Knee Osteoarthritis Severity Grading with EfficientNetV2-S + MSCCM
+<div align="center">
 
-Deep-learning system that grades knee osteoarthritis (OA) severity from X-ray images on the five-level Kellgren–Lawrence (KL) scale, packaged as a full clinical-style application: a Flask inference API, a Next.js web dashboard for doctors, patients and administrators, an Expo React Native mobile app, and a Gemini-based assistant that explains results.
+# 🦴 Knee Osteoarthritis Severity Grading
 
-Paper: *Automated Osteoarthritis Detection and Severity Grading from Knee X-rays Using Deep Learning* (A. S. D. S. Rao, T. C. Raj, Dr. T. Illakiya), presented at IconDeepCom 2026.
+**EfficientNetV2-S + Multi-Scale Convolution & Channel-attention Module (MSCCM)**
+
+Automated Kellgren–Lawrence (KL) grading of knee X-rays, packaged as a full clinical-style application:
+a Flask inference API, a Next.js dashboard, a React Native mobile app and a Gemini-based assistant.
+
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](#)
+[![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white)](#)
+[![Flask](https://img.shields.io/badge/Flask-000000?logo=flask&logoColor=white)](#)
+[![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=nextdotjs&logoColor=white)](#)
+[![Expo](https://img.shields.io/badge/Expo-React%20Native-000020?logo=expo&logoColor=white)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+📄 *Presented at **IconDeepCom 2026***
+
+</div>
+
+---
+
+## Contents
+
+- [Overview](#overview)
+- [Results](#results)
+- [Model architecture](#model-architecture)
+- [Training setup](#training-setup)
+- [Application](#application)
+- [Getting started](#getting-started)
+- [API reference](#api-reference)
+- [Project structure](#project-structure)
+- [Publication](#publication)
+- [Disclaimer](#disclaimer)
+
+## Overview
+
+Knee osteoarthritis is graded on the five-level **Kellgren–Lawrence scale** (0 Healthy → 4 Severe). Grading by eye is slow and varies between readers, and neighbouring grades — especially *Doubtful* (1) and *Minimal* (2) — look almost identical on a radiograph.
+
+This project tackles that with a pretrained **EfficientNetV2-S** backbone extended by a lightweight **MSCCM** block that captures features at several receptive-field sizes and reweights channels by importance. The trained model is served through a role-based web and mobile application used by **administrators**, **doctors** and **patients**.
 
 ## Results
 
-| Version | Test accuracy (5 KL grades) |
-|---|---|
-| Published model (`new-efficientnetv2-s-msscm.ipynb`) | 79.35 % |
-| Refined model after publication | 80.15 % |
+| Model | Test accuracy (5 KL grades) |
+|---|:---:|
+| EfficientNetV2-S + MSCCM — published version ([notebook](training/effnetv2s_msccm.ipynb)) | **79.35 %** |
+| Refined version after publication | **80.15 %** |
 
-Neighbouring KL grades (for example 1 "doubtful" vs 2 "minimal") look almost identical on X-rays, which makes this one of the hardest parts of the task. Several additions that looked promising on paper — a gated fusion unit, a two-stage attention module and MixUp augmentation — all lowered accuracy and were removed.
+**What did not help.** Several additions that looked promising were evaluated and removed because they *lowered* accuracy: a gated fusion unit, a two-stage attention module, MixUp augmentation and differential learning rates.
 
-## Model
+## Model architecture
 
-- **Backbone:** EfficientNetV2-S pretrained on ImageNet (torchvision).
-- **MSCCM (Multi-Scale Convolution + Channel attention Module):** inserted once after the 160-channel stage. Parallel 1×1, 3×3 and 5×5 convolutions are summed, then a squeeze-and-excitation style channel-attention block reweights the feature maps.
-- **Head:** global average pooling → linear layer with 5 outputs (KL grades 0–4).
+```mermaid
+flowchart LR
+    A[Knee X-ray<br/>224×224] --> B[EfficientNetV2-S<br/>stages 0–5]
+    B --> C{{MSCCM}}
+    C --> D[EfficientNetV2-S<br/>remaining stages]
+    D --> E[Global Avg Pool]
+    E --> F[Linear · 5 classes]
+    F --> G[KL grade 0–4<br/>+ confidence]
 
-## Training
+    subgraph MSCCM [MSCCM · 160 channels]
+      direction TB
+      m1[Conv 1×1] --> s((Σ))
+      m3[Conv 3×3] --> s
+      m5[Conv 5×5] --> s
+      s --> r[ReLU] --> se[Channel attention<br/>GAP → FC → ReLU → FC → Sigmoid] --> o[Reweighted features]
+    end
+```
+
+- **Backbone** — EfficientNetV2-S pretrained on ImageNet (torchvision).
+- **MSCCM** — inserted once after the first 160-channel stage. Parallel 1×1, 3×3 and 5×5 convolutions are summed, then a squeeze-and-excitation style block (reduction 16) reweights the channels.
+- **Head** — global average pooling → linear layer with 5 outputs.
+
+## Training setup
 
 | Setting | Value |
 |---|---|
-| Dataset | Knee Osteoarthritis Dataset with class balance (Kaggle), 8,000 train / 2,000 test images |
-| Pre-processing | grayscale → 3 channels, resize to 224×224, ImageNet normalisation |
-| Augmentation | random horizontal flip, random rotation (±7°) |
-| Loss | cross-entropy with label smoothing 0.05 |
-| Optimiser | AdamW, learning rate 3e-4, weight decay 1e-4 |
+| Dataset | Knee Osteoarthritis Dataset with class balance (Kaggle) — 8,000 train / 2,000 test |
+| Pre-processing | grayscale → 3 channels, resize 224×224, ImageNet normalisation |
+| Augmentation | random horizontal flip, random rotation ±7° |
+| Loss | cross-entropy, label smoothing 0.05 |
+| Optimiser | AdamW · lr 3e-4 · weight decay 1e-4 |
 | Scheduler | ReduceLROnPlateau on validation accuracy (factor 0.5, patience 2) |
 | Epochs / batch size | 25 / 16 |
 | Hardware | NVIDIA Tesla T4 (Kaggle) |
 
+The full training script is in [`training/train.py`](training/train.py).
+
 ## Application
 
+```mermaid
+flowchart LR
+    W[Next.js dashboard] -- REST + JWT --> API
+    M[Expo mobile app] -- REST + JWT --> API
+    API[Flask API] --> DB[(SQLite · SQLAlchemy)]
+    API --> ML[PyTorch model<br/>EffNetV2-S + MSCCM]
+    API --> LLM[Google Gemini<br/>assistant]
 ```
-backend/    Flask REST API: JWT authentication, role-based routes (admin, doctor, patient),
-            scan upload and inference, SQLite database via SQLAlchemy, Gemini chatbot
-frontend/   Next.js + TypeScript + Tailwind dashboard with separate admin, doctor and patient views,
-            image upload, prediction results and PDF report export
-mobile/     Expo React Native app: login, dashboard, patients, scans, scan details and chatbot
+
+| Role | What they can do |
+|---|---|
+| **Admin** | Manage users, view all patients and scans, read activity logs, see system statistics |
+| **Doctor** | Manage patients, upload X-rays, review predictions, annotate scans, export PDF reports |
+| **Patient** | Upload scans, view their own results and history, ask the assistant about their grade |
+
+Highlights: JWT authentication with role-based route protection · scan upload with instant inference and confidence score · PDF report export · light/dark themes · Gemini assistant that explains results (with an offline keyword fallback).
+
+## Getting started
+
+### Prerequisites
+
+- Python 3.10+, Node.js 18+, npm
+- Trained weights `best_effnetv2s_msccm.pth` placed in the repository root
+  *(not committed because of size; without them the API starts with random weights for demo purposes)*
+
+### 1 · Backend
+
+```bash
+cd backend
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+cp .env.example .env                                 # then set JWT_SECRET (and optionally GEMINI_API_KEY)
+python app.py                                        # → http://localhost:5000
 ```
 
-Main API endpoints: `POST /predict`, `POST /api/scans/upload`, `GET /api/scans`, `GET /api/scans/export`, `POST /api/chat`, `POST /api/auth/login`, `GET /api/admin/stats`.
+On first start the database is created and three demo accounts are seeded:
 
-## Running locally
+| Role | Username | Password |
+|---|---|---|
+| Admin | `admin` | `admin123` |
+| Doctor | `doctor1` | `doctor123` |
+| Patient | `patient1` | `patient123` |
 
-1. **Model weights:** place `best_effnetv2s_msccm.pth` in the repository root (weights are not included because of their size).
-2. **Backend**
-   ```bash
-   cd backend
-   pip install -r requirements.txt
-   # optional, for the chatbot:  export GEMINI_API_KEY=your_key
-   python app.py            # http://localhost:5000
-   ```
-3. **Frontend**
-   ```bash
-   cd frontend
-   npm install
-   npm run dev              # http://localhost:3000
-   ```
-4. **Mobile app**
-   ```bash
-   cd mobile
-   npm install
-   npx expo start           # scan the QR code with Expo Go
-   ```
+### 2 · Web dashboard
+
+```bash
+cd frontend
+npm install
+npm run dev        # → http://localhost:3000
+```
+
+### 3 · Mobile app
+
+```bash
+cd mobile
+npm install
+npx expo start     # scan the QR code with Expo Go
+```
+
+## API reference
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/api/auth/login` | Log in and receive a JWT |
+| `GET` | `/api/auth/me` | Current user |
+| `POST` | `/predict` | Run inference on an uploaded X-ray |
+| `POST` | `/api/scans/upload` | Upload a scan for a patient and store the prediction |
+| `GET` | `/api/scans` | List scans (filtered by role) |
+| `GET` | `/api/scans/export` | Export scans |
+| `GET · PUT · DELETE` | `/api/scans/<id>` | Read, annotate or remove a scan |
+| `GET · POST` | `/api/patients` | List or create patients |
+| `GET · POST` | `/api/admin/users` | Manage users (admin only) |
+| `GET` | `/api/admin/stats` · `/api/admin/logs` | Statistics and activity logs (admin only) |
+| `POST` | `/api/chat` | Ask the Gemini assistant |
+| `GET` | `/api/health` | Health check |
+
+## Project structure
+
+```
+OA_Detection/
+├── backend/            Flask API — auth, role-based routes, inference, SQLAlchemy models, Gemini chat
+│   ├── app.py
+│   ├── auth.py
+│   ├── database.py
+│   ├── inference.py
+│   ├── model_loader.py
+│   └── routes_*.py
+├── frontend/           Next.js + TypeScript + Tailwind dashboard (admin / doctor / patient views)
+├── mobile/             Expo React Native app
+├── training/
+│   ├── effnetv2s_msccm.ipynb   Kaggle notebook with outputs (published model)
+│   └── train.py                Training and evaluation script
+└── LICENSE
+```
+
+## Publication
+
+A. S. D. S. Rao, T. C. Raj, Dr. T. Illakiya — *Automated Osteoarthritis Detection and Severity Grading from Knee X-rays Using Deep Learning*, IconDeepCom 2026.
 
 ## Tech stack
 
-PyTorch · torchvision · scikit-learn · Flask · SQLAlchemy · JWT · Google Gemini · Next.js · React · TypeScript · Tailwind CSS · React Native (Expo)
+**ML** PyTorch · torchvision · scikit-learn  **Backend** Flask · SQLAlchemy · PyJWT · Google Gemini
+**Web** Next.js · React · TypeScript · Tailwind CSS · Framer Motion · jsPDF  **Mobile** React Native · Expo · React Navigation
 
 ## Disclaimer
 
-This is a research prototype and not a medical device. Predictions must not be used for diagnosis without review by a qualified clinician.
+This is a research prototype, **not a medical device**. Predictions must not be used for diagnosis without review by a qualified clinician.
 
 ## License
 
-MIT © Chatush Raj
+[MIT](LICENSE) © Chatush Raj

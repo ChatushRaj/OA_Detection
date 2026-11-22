@@ -4,7 +4,6 @@ import torch.nn as nn  # pyre-ignore
 from torchvision.models import efficientnet_v2_s  # pyre-ignore
 
 
-# Default model path: C:/Users/chatu/OneDrive/Desktop/Project/best_effnetv2s_msccm.pth
 MODEL_DIR = os.path.dirname(os.path.dirname(__file__))
 MODEL_FILENAME = "best_effnetv2s_msccm.pth"
 
@@ -35,7 +34,7 @@ class EfficientNetV2S_MSCCM(nn.Module):
         base = efficientnet_v2_s(weights=None)
 
         self.features = base.features
-        self.msccm = MSCCM(channels=160)   # ✅ correct stage
+        self.msccm = MSCCM(channels=160)   # applied after the 160-channel stage
         self.pool = base.avgpool
         self.classifier = nn.Linear(1280, num_classes)
 
@@ -45,7 +44,7 @@ class EfficientNetV2S_MSCCM(nn.Module):
         for block in self.features:
             x = block(x)
 
-            # ✅ ATTENTION IS APPLIED HERE (ONCE)
+            # MSCCM is applied once, after the first 160-channel block
             if (not msccm_used) and x.shape[1] == 160:
                 x = self.msccm(x)
                 msccm_used = True
