@@ -46,6 +46,21 @@ This project tackles that with a pretrained **EfficientNetV2-S** backbone extend
 | EfficientNetV2-S + MSCCM — published version ([notebook](training/effnetv2s_msccm.ipynb)) | **79.35 %** |
 | Refined version after publication | **80.15 %** |
 
+<p align="center">
+  <img src="docs/images/training-results.png" alt="Loss and accuracy curves over 25 epochs, and the confusion matrix on the 2,000-image test set" width="900">
+  <br><sub>Training curves and test-set confusion matrix of the published model (from <a href="training/effnetv2s_msccm.ipynb">the training notebook</a>).</sub>
+</p>
+
+| KL grade | Correct / test images | Accuracy |
+|---|:---:|:---:|
+| 0 · Healthy | 227 / 400 | 56.8 % |
+| 1 · Doubtful | 332 / 400 | 83.0 % |
+| 2 · Minimal | 270 / 400 | 67.5 % |
+| 3 · Moderate | 359 / 400 | 89.8 % |
+| 4 · Severe | 399 / 400 | 99.8 % |
+
+Severe and moderate OA are recognised almost perfectly. Most errors sit between the three early grades: healthy knees are often predicted as doubtful (116 cases), which matches how hard these grades are to tell apart, even for radiologists.
+
 **What did not help.** Several additions that looked promising were evaluated and removed because they *lowered* accuracy: a gated fusion unit, a two-stage attention module, MixUp augmentation and differential learning rates.
 
 ## Model architecture
