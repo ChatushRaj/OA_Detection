@@ -12,7 +12,7 @@ a Flask inference API, a Next.js dashboard, a React Native mobile app and a Gemi
 [![Flask](https://img.shields.io/badge/Flask-000000?logo=flask&logoColor=white)](#)
 [![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=nextdotjs&logoColor=white)](#)
 [![Expo](https://img.shields.io/badge/Expo-React%20Native-000020?logo=expo&logoColor=white)](#)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: All rights reserved](https://img.shields.io/badge/License-All%20rights%20reserved-red.svg)](LICENSE)
 
 📄 *Presented at **IconDeepCom 2026***
 
@@ -199,4 +199,6 @@ This is a research prototype, **not a medical device**. Predictions must not be 
 
 ## License
 
-[MIT](LICENSE) © Chatush Raj
+Copyright © 2026 Chatush Raj Thotamsetty. **All rights reserved.**
+
+This code is published for viewing and evaluation only. It may not be copied, reused, modified or redistributed, in whole or in part, without written permission. See [LICENSE](LICENSE) for the full terms.
